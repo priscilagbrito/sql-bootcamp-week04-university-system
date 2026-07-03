@@ -326,7 +326,7 @@ ORDER BY e.nombre, c.codigo;*/
 
 -- Query 13 — Top 3 cursos con más estudiantes inscritos
 
-SELECT 
+/*SELECT 
 	c.codigo,
 	c.nombre AS nombre_curso,
     COUNT(i.estudiante_id) AS total_inscritos
