@@ -326,16 +326,16 @@ ORDER BY e.nombre, c.codigo;*/
 
 -- Query 13 — Top 3 cursos con más estudiantes inscritos
 
-/*SELECT 
+SELECT 
 	c.codigo,
 	c.nombre AS nombre_curso,
     COUNT(i.estudiante_id) AS total_inscritos
 FROM cursos c
 INNER JOIN inscripciones i ON c.id = i.curso_id
-WHERE i.estado = 'aprobado'
+WHERE i.estado <> 'retirado'
 GROUP BY c.id, c.nombre, c.codigo
 ORDER BY total_inscritos DESC
-LIMIT 3;*/
+LIMIT 3;
 
 -- Query 14 — Estudiantes inscritos en cursos de 2+ departamentos distintos
 
