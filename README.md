@@ -46,7 +46,6 @@ Problema: Detectar a los alumnos que están cursando materias en dos o más depa
 
 Solución: Conecté cuatro tablas y apliqué un COUNT(DISTINCT...) junto con la cláusula HAVING para filtrar los grupos después de la agregación.
 
-sql
 SELECT
 	e.nombre AS estudiante,
     COUNT(DISTINCT c.departamento_id) AS num_departamentos
@@ -61,7 +60,6 @@ Problema: Analizar cuáles son las tres materias con mayor cantidad de alumnos a
 
 Solución: Implementé un conteo agrupado excluyendo a los alumnos con estado 'retirado' mediante el operador <>, ordenando de forma descendente y limitando el resultado.
 
-sql
 SELECT 
 	c.codigo,
 	c.nombre AS nombre_curso,
