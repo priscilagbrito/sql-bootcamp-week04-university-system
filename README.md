@@ -68,10 +68,10 @@ HAVING COUNT(DISTINCT c.departamento_id) >= 2;
 SELECT 
 	c.codigo,
 	c.nombre AS nombre_curso,
-    COUNT(i.estudiante_id) AS total_inscritos
+    COUNT(i.estudiante_id) AS total_inscriptos
 FROM cursos c
 INNER JOIN inscripciones i ON c.id = i.curso_id
 WHERE i.estado <> 'retirado'
 GROUP BY c.id, c.nombre, c.codigo
-ORDER BY total_inscritos DESC
+ORDER BY total_inscriptos DESC
 LIMIT 3;
