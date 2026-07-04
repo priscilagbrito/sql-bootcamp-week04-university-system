@@ -33,6 +33,21 @@ A continuación, presento tres de las consultas más interesantes que desarroll�
 * **Problema:** La dirección de la universidad necesitaba saber qué profesores no tienen cursos asignados este semestre para optimizar la distribución del personal.
 * **Solución:** Utilicé un `INNER JOIN` estratégico combinado con un filtro `IS NULL` para aislar a los docentes que no tenían registros coincidentes en la tabla de cursos.
 
+### 2. Estudiantes Multidisciplinarios (Dos o más departamentos)
+* **Problema:** Detectar a los alumnos que están cursando materias en dos o más departamentos diferentes para incluirlos en un programa de mentoría integral.
+* **Solución:** Conecté cuatro tablas y apliqué un COUNT(DISTINCT...) junto con la cláusula HAVING para filtrar los grupos después de la agregación.
+
+### 3. Top 3 Cursos Más Populares (Excluyendo Retiros)
+* **Problema:** Analizar cuáles son las tres materias con mayor cantidad de alumnos activos actualmente.
+* **Solución:** Implementé un conteo agrupado excluyendo a los alumnos con estado 'retirado' mediante el operador <>, ordenando de forma descendente y limitando el resultado.
+
+* **Habilidades Demostradas**
+Modelado de datos y análisis de diagramas EER.
+Filtrado avanzado con operadores relacionales (<>, IS NULL).
+Uso de funciones de agregación (COUNT, DISTINCT).
+Filtrado de datos agrupados mediante HAVING.
+Optimización de reportes gerenciales uniendo múltiples tablas.
+
 ```sql
 SELECT 
     p.nombre AS nombre_profesor, 
@@ -40,11 +55,6 @@ SELECT
 FROM profesores p
 INNER JOIN departamentos d ON p.departamento_id = d.id
 WHERE c.id IS NULL; 
-
-### 2. Estudiantes Multidisciplinarios (Dos o más departamentos)
-Problema: Detectar a los alumnos que están cursando materias en dos o más departamentos diferentes para incluirlos en un programa de mentoría integral.
-
-Solución: Conecté cuatro tablas y apliqué un COUNT(DISTINCT...) junto con la cláusula HAVING para filtrar los grupos después de la agregación.
 
 SELECT
 	e.nombre AS estudiante,
@@ -54,11 +64,6 @@ INNER JOIN inscripciones i ON e.id = i.estudiante_id
 INNER JOIN cursos c ON i.curso_id = c.id
 GROUP BY e.id, e.nombre
 HAVING COUNT(DISTINCT c.departamento_id) >= 2;
-
-### 3. Top 3 Cursos Más Populares (Excluyendo Retiros)
-Problema: Analizar cuáles son las tres materias con mayor cantidad de alumnos activos actualmente.
-
-Solución: Implementé un conteo agrupado excluyendo a los alumnos con estado 'retirado' mediante el operador <>, ordenando de forma descendente y limitando el resultado.
 
 SELECT 
 	c.codigo,
@@ -70,10 +75,3 @@ WHERE i.estado <> 'retirado'
 GROUP BY c.id, c.nombre, c.codigo
 ORDER BY total_inscritos DESC
 LIMIT 3;
-
-Habilidades Demostradas
-Modelado de datos y análisis de diagramas EER.
-Filtrado avanzado con operadores relacionales (<>, IS NULL).
-Uso de funciones de agregación (COUNT, DISTINCT).
-Filtrado de datos agrupados mediante HAVING.
-Optimización de reportes gerenciales uniendo múltiples tablas.
