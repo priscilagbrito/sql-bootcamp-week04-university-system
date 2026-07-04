@@ -4,8 +4,8 @@
 -- ======================================
 
 -- Parte 1 CREAR Base Datos --
-CREATE DATABASE universidad_techmaster;
-USE universidad_techmaster;
+-- CREATE DATABASE universidad_techmaster;
+-- USE universidad_techmaster;
 
 -- SELECT DATABASE();
 
