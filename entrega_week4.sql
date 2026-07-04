@@ -317,6 +317,7 @@ INNER JOIN profesores p2 ON p1.departamento_id = p2.departamento_id
 INNER JOIN departamentos d ON p1.departamento_id = d.id
 ORDER BY p1.nombre, p2.nombre, p1.departamento_id;*/
 
+-- ¿cuántas inscripciones son POSIBLES en la universidad?
 /*SELECT e.nombre AS estudiante, c.codigo
 FROM estudiantes e
 CROSS JOIN cursos c
