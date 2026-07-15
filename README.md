@@ -40,13 +40,13 @@ A continuación, presento tres de las consultas más interesantes que desarroll�
 ### 3. Top 3 Cursos Más Populares (Excluyendo Retiros)
 * **Problema:** Analizar cuáles son las tres materias con mayor cantidad de alumnos activos actualmente.
 * **Solución:** Implementé un conteo agrupado excluyendo a los alumnos con estado 'retirado' mediante el operador <>, ordenando de forma descendente y limitando el resultado.
-
 * **Habilidades Demostradas**
 Modelado de datos y análisis de diagramas EER.
 Filtrado avanzado con operadores relacionales (<>, IS NULL).
 Uso de funciones de agregación (COUNT, DISTINCT).
 Filtrado de datos agrupados mediante HAVING.
 Optimización de reportes gerenciales uniendo múltiples tablas.
+
 
 
 
