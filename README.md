@@ -48,6 +48,9 @@ Uso de funciones de agregación (COUNT, DISTINCT).
 Filtrado de datos agrupados mediante HAVING.
 Optimización de reportes gerenciales uniendo múltiples tablas.
 
+
+
+
 ```sql
 SELECT 
     p.nombre AS nombre_profesor, 
